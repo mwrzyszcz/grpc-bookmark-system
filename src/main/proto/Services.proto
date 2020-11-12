@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package proto;
+
+message BookmarkRequest {
+  string url = 1;
+  string tags = 2;
+}
+
+message BookmarkResponse {
+  string status = 1;
+}
+
+service BookmarkService {
+  rpc addBookmark(BookmarkRequest) returns (BookmarkResponse);
+}
