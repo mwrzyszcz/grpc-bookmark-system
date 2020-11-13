@@ -12,7 +12,7 @@ Stack:
 
 ### How to use
 
-1. Clone repository
+1. Clone repository `$ git clone https://github.com/mwrzyszcz/grpc-bookmark-system.git`
 2. Run application
 
 * OpenJDK 11
@@ -48,21 +48,21 @@ then you get:
 proto.BookmarkService@127.0.0.1:8080>
 ```
 
-5. Check BookmarkService API
+5. Check Bookmark Service API
 
 `$ show service`
 
 then you get:
 
 ```text
-+-----------------+-------------+-----------------+------------------+
-|     SERVICE     |     RPC     |  REQUEST TYPE   |  RESPONSE TYPE   |
-+-----------------+-------------+-----------------+------------------+
-| BookmarkService | addBookmark | BookmarkRequest | BookmarkResponse |
-+-----------------+-------------+-----------------+------------------+
++--------------------+-------------+-----------------+------------------+
+|      SERVICE       |     RPC     |  REQUEST TYPE   |  RESPONSE TYPE   |
++--------------------+-------------+-----------------+------------------+
+| BookmarkController | addBookmark | BookmarkRequest | BookmarkResponse |
++--------------------+-------------+-----------------+------------------+
 ```
 
-6. Use method to add bookmark
+6. Use `addBookmark` method to create new bookmark
 
 `$ call addBookmark`
 

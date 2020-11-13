@@ -11,6 +11,6 @@ message BookmarkResponse {
   string status = 1;
 }
 
-service BookmarkService {
+service BookmarkController {
   rpc addBookmark(BookmarkRequest) returns (BookmarkResponse);
 }
