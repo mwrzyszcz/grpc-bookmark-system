@@ -11,6 +11,13 @@ message BookmarkResponse {
   string status = 1;
 }
 
+message EmptyParams{}
+
+message HtmlResponse{
+  string value = 1;
+}
+
 service BookmarkController {
   rpc addBookmark(BookmarkRequest) returns (BookmarkResponse);
+  rpc getHTML(EmptyParams) returns (HtmlResponse);
 }

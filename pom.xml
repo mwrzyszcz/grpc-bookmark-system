@@ -20,6 +20,7 @@
     <grpc.services.version>1.33.1</grpc.services.version>
     <tomcat.api.version>6.0.53</tomcat.api.version>
     <jsoup.version>1.13.1</jsoup.version>
+    <commonmark.version>0.15.2</commonmark.version>
 
     <!--plugins-->
     <protobuf.plugin.version>0.6.1</protobuf.plugin.version>
@@ -59,6 +60,12 @@
       <artifactId>jsoup</artifactId>
       <version>${jsoup.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.atlassian.commonmark</groupId>
+      <artifactId>commonmark</artifactId>
+      <version>${commonmark.version}</version>
+    </dependency>
+
 
   </dependencies>
 

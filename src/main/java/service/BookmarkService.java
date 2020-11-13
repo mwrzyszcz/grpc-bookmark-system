@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Optional;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
 import org.jsoup.Connection;
 import org.jsoup.helper.HttpConnection;
 import org.jsoup.nodes.Document;
@@ -51,6 +53,23 @@ class BookmarkService {
       e.printStackTrace();
     }
     return SUCCESS_RESPONSE;
+  }
+
+  String renderHTML() {
+
+    var path = Paths.get("target\\bookmarks.md");
+
+    String readString = null;
+    try {
+      if (Files.notExists(path)) Files.createFile(path);
+      readString = Files.readString(path);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    var parser = Parser.builder().build();
+    var htmlRenderer = HtmlRenderer.builder().build();
+    return Optional.ofNullable(readString).map(parser::parse).map(htmlRenderer::render).orElse("");
   }
 
   private String extractDescription(Document document) {

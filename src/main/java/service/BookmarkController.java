@@ -3,6 +3,8 @@ package service;
 import io.grpc.stub.StreamObserver;
 import proto.BookmarkControllerGrpc;
 import proto.BookmarkResponse;
+import proto.EmptyParams;
+import proto.HtmlResponse;
 import service.excpetion.ConnectionFailedException;
 
 public class BookmarkController extends BookmarkControllerGrpc.BookmarkControllerImplBase {
@@ -25,6 +27,14 @@ public class BookmarkController extends BookmarkControllerGrpc.BookmarkControlle
     }
 
     responseObserver.onNext(response.build());
+    responseObserver.onCompleted();
+  }
+
+  public void getHTML(EmptyParams emptyParams, StreamObserver<HtmlResponse> responseObserver) {
+
+    var html = bookmarkService.renderHTML();
+
+    responseObserver.onNext(HtmlResponse.newBuilder().setValue(html).build());
     responseObserver.onCompleted();
   }
 }
