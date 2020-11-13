@@ -93,7 +93,21 @@ We've got markdown file as follows:
 * RevDeBug's solution allows engineering teams to record & replay software execution in local and remote environments. Resole your errors in minutes not days.
 ```
 
-8. Wrong URL in parameter response
+8. Render HTML file from markdown
+
+`$ call getHtml`
+
+then get
+
+```json5
+
+{
+  "value": "\u003ch2\u003eError monitoring that works | RevDeBug\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003ehttps://revdebug.com/\u003c/li\u003e\n\u003cli\u003etag1\u003c/li\u003e\n\u003cli\u003eRevDeBug's solution allows engineering teams to record \u0026amp; replay software execution in local and remote environments. Resole your errors in minutes not days.\u003c/li\u003e\n\u003c/ul\u003e\n"
+}
+
+```
+
+9. Wrong URL in parameter response
 
 Provide wrong URL in parameters
 

@@ -19,5 +19,5 @@ message HtmlResponse{
 
 service BookmarkController {
   rpc addBookmark(BookmarkRequest) returns (BookmarkResponse);
-  rpc getHTML(EmptyParams) returns (HtmlResponse);
+  rpc getHtml(EmptyParams) returns (HtmlResponse);
 }

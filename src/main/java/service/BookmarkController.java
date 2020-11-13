@@ -30,9 +30,9 @@ public class BookmarkController extends BookmarkControllerGrpc.BookmarkControlle
     responseObserver.onCompleted();
   }
 
-  public void getHTML(EmptyParams emptyParams, StreamObserver<HtmlResponse> responseObserver) {
+  public void getHtml(EmptyParams emptyParams, StreamObserver<HtmlResponse> responseObserver) {
 
-    var html = bookmarkService.renderHTML();
+    var html = bookmarkService.renderHtml();
 
     responseObserver.onNext(HtmlResponse.newBuilder().setValue(html).build());
     responseObserver.onCompleted();

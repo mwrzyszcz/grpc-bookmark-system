@@ -55,7 +55,7 @@ class BookmarkService {
     return SUCCESS_RESPONSE;
   }
 
-  String renderHTML() {
+  String renderHtml() {
 
     var path = Paths.get("target\\bookmarks.md");
 
@@ -69,7 +69,12 @@ class BookmarkService {
 
     var parser = Parser.builder().build();
     var htmlRenderer = HtmlRenderer.builder().build();
-    return Optional.ofNullable(readString).map(parser::parse).map(htmlRenderer::render).orElse("");
+
+    return Optional.ofNullable(readString)
+        .map(html -> html.replaceAll("[^\\u003c\\u000a\\u000d\\u0020-\\uD7FF\\uE000-\\uFFFD]", ""))
+        .map(parser::parse)
+        .map(htmlRenderer::render)
+        .orElse("");
   }
 
   private String extractDescription(Document document) {
