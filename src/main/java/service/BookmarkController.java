@@ -2,7 +2,6 @@ package service;
 
 import io.grpc.stub.StreamObserver;
 import proto.BookmarkControllerGrpc;
-import proto.BookmarkRequest;
 import proto.BookmarkResponse;
 import service.excpetion.ConnectionFailedException;
 
@@ -17,12 +16,9 @@ public class BookmarkController extends BookmarkControllerGrpc.BookmarkControlle
   public void addBookmark(
       proto.BookmarkRequest request, StreamObserver<BookmarkResponse> responseObserver) {
 
-    var bookmarkRequest =
-        BookmarkRequest.newBuilder().setUrl(request.getUrl()).setTags(request.getTags()).build();
-
     var response = BookmarkResponse.newBuilder();
     try {
-      var responseStatus = bookmarkService.process(bookmarkRequest);
+      var responseStatus = bookmarkService.process(request);
       response.setStatus(responseStatus);
     } catch (ConnectionFailedException ex) {
       response.setStatus(ex.getMessage());
